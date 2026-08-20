@@ -1,9 +1,8 @@
-app = "data-panel-zhang"   # 替换为唯一名称，例如 "data-panel-zhang"
-primary_region = "sin"         # 可选新加坡或离你近的区域
+app = "data-panel-zhang"
+primary_region = "sin"
 
 [build]
-  [build.args]
-    PIP_REQUIREMENTS = "requirements.txt"
+  dockerfile = "Dockerfile"   # 明确使用 Dockerfile 构建
 
 [http_service]
   internal_port = 5000
