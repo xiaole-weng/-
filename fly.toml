@@ -1,4 +1,4 @@
-app = "dengjibiaoge"
+app = "test-panel-abc"
 
 [build]
   dockerfile = "Dockerfile"
