@@ -1,4 +1,4 @@
-app = "your-app-name"   # 稍后在Fly.io创建应用时会生成实际名称，可以先保留
+app = "dengjibiaoge"   # 稍后在Fly.io创建应用时会生成实际名称，可以先保留
 
 [build]
   dockerfile = "Dockerfile"
