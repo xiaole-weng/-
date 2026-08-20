@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{% if record %}编辑记录{% else %}添加记录{% endif %}</h2>
+<form method="post">
+    <div class="row">
+        <div class="col-md-3 mb-2"><input class="form-control" name="loan_date" placeholder="下款日期" value="{{ record.loan_date if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="end_date" placeholder="结束日期" value="{{ record.end_date if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="name" placeholder="姓名" value="{{ record.name if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="amount" placeholder="额度" value="{{ record.amount if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="principal" placeholder="本金" value="{{ record.principal if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="weekly" placeholder="周续" value="{{ record.weekly if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="daily" placeholder="天续" value="{{ record.daily if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="profit" placeholder="利润" value="{{ record.profit if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="overdue" placeholder="逾期" value="{{ record.overdue if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="receive_time" placeholder="收款时间" value="{{ record.receive_time if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="remark" placeholder="备注" value="{{ record.remark if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="phone_model" placeholder="手机型号" value="{{ record.phone_model if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="id_number" placeholder="身份证号码" value="{{ record.id_number if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="imei" placeholder="IMEI" value="{{ record.imei if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="agent" placeholder="中介" value="{{ record.agent if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="commission" placeholder="佣金" value="{{ record.commission if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="supervision" placeholder="监管期" value="{{ record.supervision if record else '' }}"></div>
+        <div class="col-md-3 mb-2"><input class="form-control" name="is_android" placeholder="是否安卓" value="{{ record.is_android if record else '' }}"></div>
+    </div>
+    <button type="submit" class="btn btn-success">保存</button>
+    <a href="{{ url_for('main.index') }}" class="btn btn-secondary">取消</a>
+</form>
+{% endblock %}
