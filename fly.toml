@@ -1,0 +1,18 @@
+app = "your-unique-app-name"   # 替换为唯一名称，例如 "data-panel-zhang"
+primary_region = "sin"         # 可选新加坡或离你近的区域
+
+[build]
+  [build.args]
+    PIP_REQUIREMENTS = "requirements.txt"
+
+[http_service]
+  internal_port = 5000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
