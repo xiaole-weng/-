@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>登录</h2>
+<form method="post">
+    <div class="mb-3"><input class="form-control" name="username" placeholder="用户名"></div>
+    <div class="mb-3"><input class="form-control" name="password" type="password" placeholder="密码"></div>
+    <button class="btn btn-primary" type="submit">登录</button>
+    <a href="{{ url_for('auth.register') }}" class="btn btn-link">注册新账号</a>
+</form>
+{% endblock %}
