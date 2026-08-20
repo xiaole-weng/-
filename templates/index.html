@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>记录列表</h2>
+    <a href="{{ url_for('main.add_record') }}" class="btn btn-primary">添加记录</a>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>下款日期</th><th>结束日期</th><th>姓名</th><th>额度</th><th>本金</th>
+            <th>周续</th><th>天续</th><th>利润</th><th>逾期</th><th>收款时间</th>
+            <th>备注</th><th>手机型号</th><th>身份证号码</th><th>IMEI</th>
+            <th>中介</th><th>佣金</th><th>监管期</th><th>是否安卓</th>
+            <th>上传者</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for r in records %}
+        <tr>
+            <td>{{ r.loan_date }}</td>
+            <td>{{ r.end_date }}</td>
+            <td>{{ r.name }}</td>
+            <td>{{ r.amount }}</td>
+            <td>{{ r.principal }}</td>
+            <td>{{ r.weekly }}</td>
+            <td>{{ r.daily }}</td>
+            <td>{{ r.profit }}</td>
+            <td>{{ r.overdue }}</td>
+            <td>{{ r.receive_time }}</td>
+            <td>{{ r.remark }}</td>
+            <td>{{ r.phone_model }}</td>
+            <td>{{ r.id_number }}</td>
+            <td>{{ r.imei }}</td>
+            <td>{{ r.agent }}</td>
+            <td>{{ r.commission }}</td>
+            <td>{{ r.supervision }}</td>
+            <td>{{ r.is_android }}</td>
+            <td>{{ r.uploader }}</td>
+            <td>
+                <a href="{{ url_for('main.edit_record', id=r.id) }}" class="btn btn-sm btn-warning">编辑</a>
+                <a href="{{ url_for('main.delete_record', id=r.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('确定删除？')">删除</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
