@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>📋 数据列表</h2>
+    <a href="{{ url_for('upload') }}" class="btn btn-success">➕ 上传</a>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>下款日期</th><th>结束日期</th><th>姓名</th><th>额度</th><th>本金</th>
+                <th>周续</th><th>天续</th><th>利润</th><th>逾期</th><th>收款时间</th>
+                <th>备注</th><th>手机型号</th><th>身份证号码</th><th>IMEI</th>
+                <th>中介</th><th>佣金</th><th>监管期</th><th>是否安卓</th>
+                <th>上传者</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in records %}
+            <tr>
+                <td>{{ r.loan_date }}</td><td>{{ r.end_date or '' }}</td>
+                <td>{{ r.name }}</td><td>{{ r.amount }}</td><td>{{ r.principal }}</td>
+                <td>{{ r.weekly or '' }}</td><td>{{ r.daily or '' }}</td>
+                <td>{{ r.profit or '' }}</td><td>{{ r.overdue or '' }}</td>
+                <td>{{ r.receive_time or '' }}</td>
+                <td>{{ r.remark or '' }}</td><td>{{ r.phone_model or '' }}</td>
+                <td>{{ r.id_card or '' }}</td><td>{{ r.imei or '' }}</td>
+                <td>{{ r.agent or '' }}</td><td>{{ r.commission or '' }}</td>
+                <td>{{ r.supervision_period or '' }}</td><td>{{ r.is_android or '' }}</td>
+                <td>{{ r.uploader.username }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
